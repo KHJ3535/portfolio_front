@@ -93,19 +93,19 @@ export default function FeedbackPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h1 className="text-6xl font-bold text-center mb-16 text-white mt-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20">
+        <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 sm:mb-16 text-white mt-8 sm:mt-16">
           피드백
         </h1>
 
         <div>
           {/* 게시판 헤더 */}
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-t-2xl p-4 border border-gray-700/50">
-            <div className="grid grid-cols-12 gap-4 text-gray-300 font-medium">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-t-2xl p-2 sm:p-4 border border-gray-700/50">
+            <div className="grid grid-cols-12 gap-2 sm:gap-4 text-gray-300 font-medium text-sm sm:text-base">
               <div className="col-span-1 text-center">번호</div>
-              <div className="col-span-2 text-center">작성자</div>
+              <div className="col-span-3 sm:col-span-2 text-center">작성자</div>
               <div className="col-span-5 text-center">내용</div>
-              <div className="col-span-4 text-center">작성일</div>
+              <div className="col-span-3 text-center">작성일</div>
             </div>
           </div>
 
@@ -116,12 +116,12 @@ export default function FeedbackPage() {
 
           {/* 페이지네이션 */}
           {totalPages > 1 && (
-            <div className="mt-6 flex justify-center">
-              <div className="flex gap-2">
+            <div className="mt-4 sm:mt-6 flex justify-center">
+              <div className="flex gap-1 sm:gap-2">
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className={`px-4 py-2 rounded-lg ${
+                  className={`px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-lg ${
                     currentPage === 1
                       ? "bg-gray-600 cursor-not-allowed"
                       : "bg-indigo-600 hover:bg-indigo-700"
@@ -135,7 +135,7 @@ export default function FeedbackPage() {
                     <button
                       key={page}
                       onClick={() => handlePageChange(page)}
-                      className={`px-4 py-2 rounded-lg ${
+                      className={`px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-lg ${
                         currentPage === page
                           ? "bg-indigo-600"
                           : "bg-gray-700 hover:bg-gray-600"
@@ -149,7 +149,7 @@ export default function FeedbackPage() {
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className={`px-4 py-2 rounded-lg ${
+                  className={`px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base rounded-lg ${
                     currentPage === totalPages
                       ? "bg-gray-600 cursor-not-allowed"
                       : "bg-indigo-600 hover:bg-indigo-700"
@@ -162,12 +162,12 @@ export default function FeedbackPage() {
           )}
 
           {/* 작성 버튼 */}
-          <div className="flex justify-end mt-6">
+          <div className="flex justify-end mt-4 sm:mt-6">
             <button
               onClick={() => setShowForm(!showForm)}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-lg shadow-lg hover:from-indigo-700 hover:to-indigo-600 transition-all duration-300"
+              className="flex items-center gap-1 sm:gap-2 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-lg shadow-lg hover:from-indigo-700 hover:to-indigo-600 transition-all duration-300"
             >
-              <FaPen className="w-5 h-5" />
+              <FaPen className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>{showForm ? "닫기" : "글쓰기"}</span>
             </button>
           </div>
@@ -181,8 +181,8 @@ export default function FeedbackPage() {
               onClick={() => setShowForm(false)}
             />
             <div className="relative min-h-screen flex items-center justify-center p-4">
-              <div className="bg-gray-800/90 rounded-2xl p-8 w-full max-w-md">
-                <h2 className="text-2xl font-bold text-white mb-6">
+              <div className="bg-gray-800/90 rounded-2xl p-4 sm:p-8 w-full max-w-md">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
                   피드백 작성
                 </h2>
                 <FeedbackForm

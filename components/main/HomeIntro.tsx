@@ -46,18 +46,18 @@ const projects: Project[] = [
 
 const HomeIntro = () => {
   return (
-    <section className="min-h-screen w-full flex items-center bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] relative overflow-hidden">
+    <section className="min-h-screen w-full flex items-center bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] relative overflow-hidden pt-20 sm:pt-0">
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-2 space-y-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 items-center">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <h1 className="text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 안녕하세요,
                 <br />
                 프론트엔드 개발자
@@ -67,7 +67,7 @@ const HomeIntro = () => {
                 </span>
                 입니다.
               </h1>
-              <p className="text-2xl text-gray-300 leading-relaxed">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed">
                 사용자 경험을 최우선으로 생각하는
                 <br />웹 개발자입니다.
               </p>
@@ -77,24 +77,24 @@ const HomeIntro = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex gap-6"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6"
             >
               <a
                 href="#projects"
-                className="px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-blue-500/20"
+                className="px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 text-base sm:text-lg font-semibold shadow-lg hover:shadow-blue-500/20 text-center"
               >
                 프로젝트 보기
               </a>
               <a
                 href="#contact"
-                className="px-10 py-4 bg-gray-800/50 backdrop-blur-sm text-white rounded-lg hover:bg-gray-700/50 transition-all duration-300 text-lg font-semibold border border-gray-700 hover:border-gray-600"
+                className="px-6 sm:px-10 py-3 sm:py-4 bg-gray-800/50 backdrop-blur-sm text-white rounded-lg hover:bg-gray-700/50 transition-all duration-300 text-base sm:text-lg font-semibold border border-gray-700 hover:border-gray-600 text-center"
               >
                 연락하기
               </a>
             </motion.div>
           </div>
 
-          <div className="lg:col-span-3 relative h-[700px]">
+          <div className="lg:col-span-3 relative h-[400px] sm:h-[500px] lg:h-[700px]">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -121,7 +121,7 @@ const HomeIntro = () => {
                             src={project.image}
                             alt={project.title}
                             fill
-                            className="object-contain p-8"
+                            className="object-contain p-4 sm:p-8"
                           />
                         ) : (
                           <Image
@@ -132,12 +132,12 @@ const HomeIntro = () => {
                           />
                         )}
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-12">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6 sm:p-12">
                         <div className="text-white">
-                          <h3 className="text-4xl font-bold mb-4">
+                          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4">
                             {project.title}
                           </h3>
-                          <p className="text-xl text-gray-200">
+                          <p className="text-base sm:text-lg lg:text-xl text-gray-200">
                             {project.description}
                           </p>
                         </div>

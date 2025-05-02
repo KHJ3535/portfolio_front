@@ -10,9 +10,7 @@ export default function Home() {
   return (
     <main className="bg-[#0a0a0a]">
       <section id="home" className="min-h-screen relative">
-        <div className="w-full h-full fixed top-0 left-0 z-0">
-          <HomeIntro />
-        </div>
+        <HomeIntro />
       </section>
 
       <div className="relative">

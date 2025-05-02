@@ -52,13 +52,15 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ feedbacks = [] }) => {
           isReply ? "bg-gray-700/30" : ""
         }`}
       >
-        <div className="grid grid-cols-12 gap-4 p-4 items-center">
+        <div className="grid grid-cols-12 gap-2 sm:gap-4 p-2 sm:p-4 items-center text-sm sm:text-base">
           <div className="col-span-1 text-center text-gray-400">{entry.id}</div>
-          <div className="col-span-2 text-center text-white">
+          <div className="col-span-3 sm:col-span-2 text-center text-white">
             {entry.author}
           </div>
-          <div className="col-span-6">
-            <p className="text-gray-300">{entry.content}</p>
+          <div className="col-span-5">
+            <p className="text-gray-300 line-clamp-2 sm:line-clamp-none">
+              {entry.content}
+            </p>
           </div>
           <div className="col-span-3 text-center text-gray-400 whitespace-nowrap">
             {formatDate(entry.createdAT)}
@@ -73,7 +75,7 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ feedbacks = [] }) => {
       {feedbacks.length > 0 ? (
         feedbacks.map((feedback) => renderEntry(feedback))
       ) : (
-        <div className="p-4 text-center text-gray-400">
+        <div className="p-4 text-center text-gray-400 text-sm sm:text-base">
           등록된 피드백이 없습니다.
         </div>
       )}
