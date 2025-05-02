@@ -53,16 +53,6 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ feedbacks = [] }) => {
         }`}
       >
         <div className="grid grid-cols-12 gap-4 p-4 items-center">
-          <div className="col-span-1 text-center text-gray-400">번호</div>
-          <div className="col-span-2 text-center text-white">작성자</div>
-          <div className="col-span-6">
-            <p className="text-gray-300">내용</p>
-          </div>
-          <div className="col-span-3 text-center text-gray-400 whitespace-nowrap">
-            작성일
-          </div>
-        </div>
-        <div className="grid grid-cols-12 gap-4 p-4 items-center">
           <div className="col-span-1 text-center text-gray-400">{entry.id}</div>
           <div className="col-span-2 text-center text-white">
             {entry.author}
