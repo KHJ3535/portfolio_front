@@ -17,22 +17,21 @@ interface Feedback {
 const dummyFeedbacks: Feedback[] = [
   {
     id: 1,
-    author: "김철수",
-    content:
-      "포트폴리오가 정말 인상적이네요! 특히 프로젝트 부분이 잘 구성되어 있습니다.",
-    createdAT: "2024-03-15T10:30:00",
+    author: "김형준",
+    content: "포트폴리오의 피드백 내용입니다.",
+    createdAT: "2025-05-02T10:30:00",
   },
   {
     id: 2,
-    author: "이영희",
-    content: "디자인이 깔끔하고 보기 좋습니다. 더 많은 프로젝트를 기대합니다!",
-    createdAT: "2024-03-14T15:45:00",
+    author: "이로하",
+    content: "포트폴리오의 피드백 내용입니다.",
+    createdAT: "2025-05-02T15:45:00",
   },
   {
     id: 3,
     author: "박지민",
-    content: "기술 스택이 다양하게 잘 정리되어 있네요. 좋은 포트폴리오입니다.",
-    createdAT: "2024-03-13T09:20:00",
+    content: "포트폴리오의 피드백 내용입니다.",
+    createdAT: "2025-05-02T09:20:00",
   },
 ];
 
@@ -63,13 +62,12 @@ export default function FeedbackPage() {
     return feedbacks.slice(startIndex, endIndex);
   };
 
-  // 총 페이지 수 계산
   const totalPages = Math.ceil(feedbacks.length / ITEMS_PER_PAGE);
 
   const handleSubmit = async (data: { name: string; content: string }) => {
     setIsLoading(true);
     try {
-      // 더미 데이터로 새 피드백 생성
+      // DB대신 더미 데이터로 새 피드백 생성
       const newFeedback: Feedback = {
         id: feedbacks.length + 1,
         author: data.name,
@@ -105,7 +103,7 @@ export default function FeedbackPage() {
               <div className="col-span-1 text-center">번호</div>
               <div className="col-span-3 sm:col-span-2 text-center">작성자</div>
               <div className="col-span-5 text-center">내용</div>
-              <div className="col-span-3 text-center">작성일</div>
+              <div className="col-span-4 text-center">작성일</div>
             </div>
           </div>
 

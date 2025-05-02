@@ -211,18 +211,20 @@ const Header = () => {
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         className="fixed right-8 bottom-8 z-50 flex flex-col space-y-4 max-h-screen pointer-events-none hidden md:block"
       >
-        <button
-          onClick={scrollToTop}
-          className="p-3 bg-gray-800/50 backdrop-blur-sm text-white rounded-full hover:bg-gray-700/50 transition-all duration-300 shadow-lg pointer-events-auto"
-        >
-          <FaArrowUp className="w-5 h-5" />
-        </button>
-        <button
-          onClick={copyEmail}
-          className="p-3 bg-gray-800/50 backdrop-blur-sm text-white rounded-full hover:bg-gray-700/50 transition-all duration-300 shadow-lg pointer-events-auto"
-        >
-          <FaEnvelope className="w-5 h-5" />
-        </button>
+        <div className="flex flex-col space-y-4">
+          <button
+            onClick={scrollToTop}
+            className="p-3 bg-gray-800/50 backdrop-blur-sm text-white rounded-full hover:bg-gray-700/50 transition-all duration-300 shadow-lg pointer-events-auto"
+          >
+            <FaArrowUp className="w-5 h-5" />
+          </button>
+          <button
+            onClick={copyEmail}
+            className="p-3 bg-gray-800/50 backdrop-blur-sm text-white rounded-full hover:bg-gray-700/50 transition-all duration-300 shadow-lg pointer-events-auto"
+          >
+            <FaEnvelope className="w-5 h-5" />
+          </button>
+        </div>
       </motion.nav>
 
       <motion.div
