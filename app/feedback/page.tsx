@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Feedback, createFeedback, getFeedbacks } from "../api/feedback";
+import { Feedback, createFeedback, getFeedbacks } from "../../utils/feedback";
 import { FaPen } from "react-icons/fa";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackForm from "./components/FeedbackForm";

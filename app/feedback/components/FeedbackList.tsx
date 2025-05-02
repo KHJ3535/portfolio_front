@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Feedback } from "../../api/feedback";
+import { Feedback } from "../../../utils/feedback";
 
 interface FeedbackListProps {
   feedbacks?: Feedback[];

@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import { animate, inView } from "motion";
-import HomeIntro from "./features/home/HomeIntro";
-import About from "./features/about/About";
-import Projects from "./features/projects/Projects";
-import Skills from "./features/skills/Skills";
-import Contact from "./features/contact/Contact";
+import HomeIntro from "../components/main/HomeIntro";
+import About from "../components/main/About";
+import Projects from "../components/main/Projects";
+import Skills from "../components/main/Skills";
+import Contact from "../components/main/Contact";
 
 export default function Home() {
   return (
