@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { animate, inView } from "motion";
 import HomeIntro from "../components/main/HomeIntro";
 import About from "../components/main/About";
 import Projects from "../components/main/Projects";

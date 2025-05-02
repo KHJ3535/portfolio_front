@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Feedback } from "../../utils/feedback";
+
+interface Feedback {
+  id: number;
+  author: string;
+  content: string;
+  createdAT: string;
+}
 
 interface FeedbackListProps {
   feedbacks?: Feedback[];
@@ -47,6 +53,16 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ feedbacks = [] }) => {
         }`}
       >
         <div className="grid grid-cols-12 gap-4 p-4 items-center">
+          <div className="col-span-1 text-center text-gray-400">번호</div>
+          <div className="col-span-2 text-center text-white">작성자</div>
+          <div className="col-span-6">
+            <p className="text-gray-300">내용</p>
+          </div>
+          <div className="col-span-3 text-center text-gray-400 whitespace-nowrap">
+            작성일
+          </div>
+        </div>
+        <div className="grid grid-cols-12 gap-4 p-4 items-center">
           <div className="col-span-1 text-center text-gray-400">{entry.id}</div>
           <div className="col-span-2 text-center text-white">
             {entry.author}
@@ -62,35 +78,10 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ feedbacks = [] }) => {
     );
   };
 
-  if (!feedbacks) {
-    return (
-      <div className="p-4 text-center text-gray-400">
-        피드백을 불러오는 중입니다...
-      </div>
-    );
-  }
-
   return (
     <div className="divide-y divide-gray-700/50">
       {feedbacks.length > 0 ? (
-        feedbacks.map((feedback) => (
-          <div key={feedback.id} className="p-4">
-            <div className="grid grid-cols-12 gap-4 items-center text-gray-300">
-              <div className="col-span-1 text-center">{feedback.id}</div>
-              <div className="col-span-2 text-center">{feedback.author}</div>
-              <div className="col-span-5 text-center">{feedback.content}</div>
-              <div className="col-span-4 text-center">
-                {new Date(feedback.createdAT).toLocaleDateString("ko-KR", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </div>
-            </div>
-          </div>
-        ))
+        feedbacks.map((feedback) => renderEntry(feedback))
       ) : (
         <div className="p-4 text-center text-gray-400">
           등록된 피드백이 없습니다.

@@ -1,10 +1,40 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Feedback, createFeedback, getFeedbacks } from "../../utils/feedback";
 import { FaPen } from "react-icons/fa";
 import FeedbackList from "../../components/FeedBack/FeedbackList";
 import FeedbackForm from "../../components/FeedBack/FeedbackForm";
+
+// 더미 데이터 타입 정의
+interface Feedback {
+  id: number;
+  author: string;
+  content: string;
+  createdAT: string;
+}
+
+// 더미 데이터
+const dummyFeedbacks: Feedback[] = [
+  {
+    id: 1,
+    author: "김철수",
+    content:
+      "포트폴리오가 정말 인상적이네요! 특히 프로젝트 부분이 잘 구성되어 있습니다.",
+    createdAT: "2024-03-15T10:30:00",
+  },
+  {
+    id: 2,
+    author: "이영희",
+    content: "디자인이 깔끔하고 보기 좋습니다. 더 많은 프로젝트를 기대합니다!",
+    createdAT: "2024-03-14T15:45:00",
+  },
+  {
+    id: 3,
+    author: "박지민",
+    content: "기술 스택이 다양하게 잘 정리되어 있네요. 좋은 포트폴리오입니다.",
+    createdAT: "2024-03-13T09:20:00",
+  },
+];
 
 export default function FeedbackPage() {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
@@ -19,8 +49,8 @@ export default function FeedbackPage() {
 
   const loadFeedbacks = async () => {
     try {
-      const data = await getFeedbacks();
-      setFeedbacks(data);
+      // 더미 데이터 사용
+      setFeedbacks(dummyFeedbacks);
     } catch (error) {
       console.error("Failed to load feedbacks:", error);
     }
@@ -39,12 +69,17 @@ export default function FeedbackPage() {
   const handleSubmit = async (data: { name: string; content: string }) => {
     setIsLoading(true);
     try {
-      const newFeedback = await createFeedback(data);
-      if (newFeedback) {
-        await loadFeedbacks();
-        setShowForm(false);
-        setCurrentPage(1); // 새 글 작성 후 첫 페이지로 이동
-      }
+      // 더미 데이터로 새 피드백 생성
+      const newFeedback: Feedback = {
+        id: feedbacks.length + 1,
+        author: data.name,
+        content: data.content,
+        createdAT: new Date().toISOString(),
+      };
+
+      setFeedbacks((prev) => [newFeedback, ...prev]);
+      setShowForm(false);
+      setCurrentPage(1);
     } catch (error) {
       console.error("Failed to create feedback:", error);
     } finally {
