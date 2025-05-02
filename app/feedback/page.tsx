@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { Feedback, createFeedback, getFeedbacks } from "../../utils/feedback";
 import { FaPen } from "react-icons/fa";
-import FeedbackList from "./components/FeedbackList";
-import FeedbackForm from "./components/FeedbackForm";
+import FeedbackList from "../../components/FeedBack/FeedbackList";
+import FeedbackForm from "../../components/FeedBack/FeedbackForm";
 
 export default function FeedbackPage() {
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
